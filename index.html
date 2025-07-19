@@ -1,66 +1,167 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-.pricing {
-width: 300px;
-margin: 50px auto;
-background-color: #fff;
-box-shadow: 0 0 10px #ccc;
-padding: 20px;
-text-align: left;
-border-radius: 8px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.title {
-font-size: 22px;
-font-weight: bold;
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
 
-.price {
-font-size: 18px;
-color: green;
-}
+        .pricing {
+            width: 100%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.features {
-list-style: none;
-padding-left: 0;
-}
+        .pricing:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
 
-.features li {
-padding: 4px;
-border-bottom: 1px solid #eee;
-}
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
 
-.btn {
-background: blue;
-color: white;
-padding: 10px 20px;
-border: none;
-margin-top: 10px;
-cursor: pointer;
-border-radius: 4px;
-}
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
 
-.btn:hover {
-background: darkblue;
-}
-</style>
+        .price {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .period {
+            font-size: 16px;
+            color: #718096;
+            margin-bottom: 30px;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .features li {
+            padding: 12px 0;
+            color: #4a5568;
+            font-size: 16px;
+            position: relative;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .features li:last-child {
+            border-bottom: none;
+        }
+
+        .features li::before {
+            content: '✓';
+            color: #48bb78;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #5a67d8, #6b46c1);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 480px) {
+            .pricing {
+                margin: 10px;
+                padding: 30px 25px;
+            }
+            
+            .title {
+                font-size: 24px;
+            }
+            
+            .price {
+                font-size: 40px;
+            }
+            
+            .features li {
+                font-size: 15px;
+                padding: 10px 0;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="pricing">
+        <h2 class="title">Basic Plan</h2>
+        <div class="price">$9.99</div>
+        <div class="period">per month</div>
 
-<div class="pricing">
-<h2 class="title">Basic Plan</h2>
-<p class="price">$9.99 /month</p>
+        <ul class="features">
+            <li>1 GB Storage</li>
+            <li>Basic Support</li>
+            <li>All Core Features</li>
+        </ul>
 
-<ul class="features">
-<li>1 GB Storage</li>
-<li>Basic Support</li>
-<li>All Core Features</li>
-</ul>
-
-<button class="btn">Start Trial</button>
-</div>
-
+        <button class="btn">Start Trial</button>
+    </div>
 </body>
 </html>
